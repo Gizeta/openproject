@@ -75,7 +75,7 @@ module OpenProject::GithubIntegration::Services
         merged_by: github_user_id(payload["merged_by"]),
         merged_at: payload["merged_at"],
         comments_count: payload.fetch("comments"),
-        review_comments_count: payload.fetch("review_comments"),
+        review_comments_count: payload.fetch("review_comments", 0), # add default value to fix Gitea integration
         additions_count: payload.fetch("additions"),
         deletions_count: payload.fetch("deletions"),
         changed_files_count: payload.fetch("changed_files"),
